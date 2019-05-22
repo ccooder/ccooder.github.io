@@ -16,9 +16,9 @@ $(document).ready(function() {
 	$("body").css("margin", '0');
 	$("body").css("padding", '0');
     $("body").click(function(e) {
-        var a = new Array("❤粒粒~❤","❤李粒❤","❤好喜欢你❤","❤你好啊，粒粒❤","❤想亲亲你❤","❤想抱抱你❤","❤想你想你想你❤","❤抱你就不想放开❤","❤你怎么这么可爱❤","❤想见到你❤");
+        var a = new Array("❤粒粒~❤","❤李粒❤","❤好喜欢你❤", "❤❤❤❤❤", "❤你好啊，粒粒❤","❤想亲亲你❤","❤想抱抱你❤","❤想你想你想你❤","❤抱你就不想放开❤","❤你怎么这么可爱❤","❤想见到你~❤", "❤❤❤❤❤");
         var b = new Array("#");
-        var $i = $("<span></span>").text(a[a_idx]);
+        var $i = $("<span></span>").text(a[Math.round(Math.random() * 12)]);
         a_idx = (a_idx + 1) % a.length;
         var x = e.pageX,
         y = e.pageY;
@@ -40,6 +40,32 @@ $(document).ready(function() {
             $i.remove();
         });
     });
+
+    i = setInterval(function() {
+    	var a = new Array("❤粒粒~❤","❤李粒❤","❤好喜欢你❤", "❤❤❤❤❤", "❤你好啊，粒粒❤","❤想亲亲你❤","❤想抱抱你❤","❤想你想你想你❤","❤抱你就不想放开❤","❤你怎么这么可爱❤","❤想见到你~❤", "❤❤❤❤❤");
+        var b = new Array("#");
+        var $i = $("<span></span>").text(a[Math.round(Math.random() * 12)]);
+        a_idx = (a_idx + 1) % a.length;
+        var x = Math.round(Math.random() * 200) + 300,
+        y = Math.round(Math.random() * 400) + 500;
+        $i.css({
+            "z-index": 999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+        });
+        $("body").append($i);
+        $i.animate({
+            "top": y - 300,
+            "opacity": 0
+        },
+        2000,
+        function() {
+            $i.remove();
+        });
+    }, 1000);
 });
 </script>
 </body>
