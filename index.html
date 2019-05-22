@@ -41,13 +41,23 @@ $(document).ready(function() {
         });
     });
 
+    function RandomNumBoth(Min,Max){
+            var Range = Max - Min;
+            var Rand = Math.random();
+            var num = Min + Math.round(Rand * Range); //四舍五入
+            return num;
+	}
+
     i = setInterval(function() {
     	var a = new Array("❤粒粒~❤","❤李粒❤","❤好喜欢你❤", "❤❤❤❤❤", "❤你好啊，粒粒❤","❤想亲亲你❤","❤想抱抱你❤","❤想你想你想你❤","❤抱你就不想放开❤","❤你怎么这么可爱❤","❤想见到你~❤", "❤❤❤❤❤");
         var b = new Array("#");
         var $i = $("<span></span>").text(a[Math.round(Math.random() * 12)]);
         a_idx = (a_idx + 1) % a.length;
-        var x = Math.round(Math.random() * 200) + 300,
-        y = Math.round(Math.random() * 400) + 500;
+        var width = $(document).width();
+        var height = $(document).height();
+        console.log(width + ',' + height)
+        var x = RandomNumBoth(width/2 - 200, width/2 + 200),
+        y = RandomNumBoth(height/2 - 100, height/2 + 300);
         $i.css({
             "z-index": 999,
             "top": y - 20,
